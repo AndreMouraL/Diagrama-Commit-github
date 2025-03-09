@@ -1,0 +1,21 @@
+Diagrama de commit remoto
+
+sequenceDiagram
+    participant L as Repositório Local
+    participant R as Repositório Remoto
+    
+    Note over L,R: Configuração Inicial
+    L->>R: git remote add origin <url>
+    
+    Note over L,R: Primeiro Commit
+    L->>L: git add .
+    L->>L: git commit -m "primeiro commit"
+    L->>R: git push -u origin main
+    
+    Note over L,R: Modificação Remota
+    R->>R: Adicionar/modificar arquivo
+    
+    Note over L,R: Sincronização
+    L->>R: git remote -v
+    L->>R: git pull origin main
+    Note over L: Verificar mudanças<br/>com git status/diff
